@@ -1,16 +1,20 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+import { FlatList, StyleSheet, Text, View,TouchableOpacity } from 'react-native'
 import React from 'react'
-
-const Group = ({title, results}) => {
+import SingleItem from './SingleItem'
+import { withNavigation } from 'react-navigation'
+const Group = ({title, results, navigation}) => {
+  if (results.length==0) {
+    return null;
+  }
   return (
     <View>
       <Text style={styles.titleStyle}>{title}</Text>
-      <Text>{results.length}</Text>
       <FlatList
         data={results}
+        showsHorizontalScrollIndicator={false}
         horizontal
         keyExtractor={(item)=>item.id}
-        renderItem={({item})=>{return <Text>{item.name}</Text>}}
+        renderItem={({item})=>{return <TouchableOpacity onPress={()=>navigation.navigate("Detail")}><SingleItem detail={item}/></TouchableOpacity>}}
       />
     </View>
   )
@@ -19,8 +23,9 @@ const Group = ({title, results}) => {
 const styles = StyleSheet.create({
     titleStyle:{
         fontSize:18,
-        fontWeight:'bold'
+        fontWeight:'bold',
+        marginLeft:10,
     }
 })
 
-export default Group
+export default withNavigation(Group)

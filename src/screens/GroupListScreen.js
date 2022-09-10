@@ -3,7 +3,6 @@ import React from 'react'
 import Group from '../components/Group'
 
 const GroupListScreen = ({result}) => {
-    console.log("Hello");
     const showResultByPrice = (price) => {
         return result.filter((each)=>{
             return each.price === price;

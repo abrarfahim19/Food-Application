@@ -9,7 +9,7 @@ const SearchScreen = () => {
     const [result, error, searchApi] = useSearch();
 
   return (
-    <View>
+    <View style={{ flex:1 }}>
         <SearchInput
             term={term}
             onTermChange={setTerm}
