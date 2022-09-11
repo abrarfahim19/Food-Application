@@ -14,7 +14,13 @@ const Group = ({title, results, navigation}) => {
         showsHorizontalScrollIndicator={false}
         horizontal
         keyExtractor={(item)=>item.id}
-        renderItem={({item})=>{return <TouchableOpacity onPress={()=>navigation.navigate("Detail")}><SingleItem detail={item}/></TouchableOpacity>}}
+        renderItem={({item})=>{
+          return <TouchableOpacity
+                    onPress={()=> navigation.navigate("Detail",{id:item.id})}>
+                      <SingleItem
+                        detail={item}
+                      />
+                  </TouchableOpacity>}}
       />
     </View>
   )

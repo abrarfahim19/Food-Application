@@ -18,7 +18,6 @@ const SearchScreen = () => {
         {
             <Text>{error}</Text>
         }
-      <Text>Result found {result?.length}</Text>
         <GroupListScreen result={result}/>
     </View>
   )

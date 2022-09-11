@@ -2,7 +2,6 @@ import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 const SingleItem = ({detail}) => {
-    console.log(detail)
   return (
     <View>
         <Image style={styles.imageStyle} source={{uri:detail.image_url}}/>
